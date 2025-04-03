@@ -6,7 +6,7 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Hola desde CodeIgniter</h1>
-    <a href="/about">Ir a about</a>
+    <h1>Hola desde About</h1>
+    <a href="/">Ir a principal</a>
 </body>
 </html>
