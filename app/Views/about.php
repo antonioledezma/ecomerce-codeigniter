@@ -6,7 +6,13 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Hola desde About</h1>
-    <a href="/">Ir a principal</a>
+    <h1><?= $title ?></h1>
+    <p><?= $description ?></p>
+    <h2>Our Team</h2>
+    <ul>
+        <?php foreach ($team as $member): ?>
+            <li><?= $member ?></li>
+        <?php endforeach; ?>
+    </ul>
 </body>
 </html>

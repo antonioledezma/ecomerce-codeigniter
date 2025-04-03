@@ -7,6 +7,9 @@
 </head>
 <body>
     <h1>Hola desde CodeIgniter</h1>
-    <a href="/about">Ir a about</a>
+    <ul>
+        <li><a href="/contact">Ir a contact</a></li>
+        <li><a href="/about">Ir a about</a></li>
+    </ul>
 </body>
 </html>
