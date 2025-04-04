@@ -1,5 +1,5 @@
 # TDP1 - ECOMERCE
-Proyecto para la materia 'el taller de programación 1' de la universidad nacional del nordeste, facultad de ciencias exactas, naturales y agrimensura.
+Proyecto para la materia <i>'Taller de Programación 1'</i> de la <b>Universidad Nacional del Nordeste. Facultad de Ciencias Exactas, Naturales y Agrimensura.</b>
 
 >Alumno: 'Antonio Ignacio Ledezma'
 
