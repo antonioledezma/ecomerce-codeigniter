@@ -1,3 +1,17 @@
+# TDP1 - ECOMERCE
+Proyecto para la materia 'el taller de programación 1' de la universidad nacional del nordeste, facultad de ciencias exactas, naturales y agrimensura.
+
+>Alumno: 'Antonio Ignacio Ledezma'
+
+### Como se ejecuta el programa
+> Se debe tener instalado PHP 8.
+
+> Se ejecuta el comando: <code>php spark serve</code>.
+
+<br><br><br><br><br>
+
+<p>A continuación se deja la documentación del framework CodeIgniter</p>
+
 # CodeIgniter 4 Framework
 
 ## What is CodeIgniter?
