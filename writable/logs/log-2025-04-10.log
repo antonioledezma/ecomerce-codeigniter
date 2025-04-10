@@ -1,0 +1,112 @@
+CRITICAL - 2025-04-10 00:25:46 --> ParseError: syntax error, unexpected token "use"
+[Method: GET, Route: /]
+in APPPATH\Views\content\home.php on line 6.
+ 1 SYSTEMPATH\View\View.php(224): include()
+ 2 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->{closure:CodeIgniter\View\View::render():221}()
+ 3 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('page/home', [], true)
+ 4 APPPATH\Controllers\Home.php(17): view('page/home', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->home()
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH\rewrite.php(44): require_once('C:\\WS\\facultad\\rep\\ecomerce\\public\\index.php')
+CRITICAL - 2025-04-10 00:31:50 --> ErrorException: Undefined variable $img_name
+[Method: GET, Route: /]
+in APPPATH\Views\component\card.php on line 2.
+ 1 APPPATH\Views\component\card.php(2): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $img_name', 'C:\\WS\\facultad\\rep\\ecomerce\\app\\Views\\component\\card.php', 2)
+ 2 APPPATH\Views\content\home.php(6): require('C:\\WS\\facultad\\rep\\ecomerce\\app\\Views\\component\\card.php')
+ 3 APPPATH\Views\page\home.php(3): require_once('C:\\WS\\facultad\\rep\\ecomerce\\app\\Views\\content\\home.php')
+ 4 SYSTEMPATH\View\View.php(224): include('C:\\WS\\facultad\\rep\\ecomerce\\app\\Views\\page\\home.php')
+ 5 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->{closure:CodeIgniter\View\View::render():221}()
+ 6 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('page/home', [], true)
+ 7 APPPATH\Controllers\Home.php(22): view('page/home', [...])
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->home()
+ 9 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+10 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+14 SYSTEMPATH\rewrite.php(44): require_once('C:\\WS\\facultad\\rep\\ecomerce\\public\\index.php')
+CRITICAL - 2025-04-10 00:32:37 --> ErrorException: Undefined variable $img_name
+[Method: GET, Route: /]
+in APPPATH\Views\component\card.php on line 2.
+ 1 APPPATH\Views\component\card.php(2): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $img_name', 'C:\\WS\\facultad\\rep\\ecomerce\\app\\Views\\component\\card.php', 2)
+ 2 APPPATH\Views\content\home.php(6): require('C:\\WS\\facultad\\rep\\ecomerce\\app\\Views\\component\\card.php')
+ 3 APPPATH\Views\page\home.php(3): require_once('C:\\WS\\facultad\\rep\\ecomerce\\app\\Views\\content\\home.php')
+ 4 SYSTEMPATH\View\View.php(224): include('C:\\WS\\facultad\\rep\\ecomerce\\app\\Views\\page\\home.php')
+ 5 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->{closure:CodeIgniter\View\View::render():221}()
+ 6 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('page/home', [], true)
+ 7 APPPATH\Controllers\Home.php(22): view('page/home', [...])
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->home()
+ 9 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+10 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+14 SYSTEMPATH\rewrite.php(44): require_once('C:\\WS\\facultad\\rep\\ecomerce\\public\\index.php')
+CRITICAL - 2025-04-10 00:32:53 --> ErrorException: Undefined variable $img_name
+[Method: GET, Route: /]
+in APPPATH\Views\component\card.php on line 2.
+ 1 APPPATH\Views\component\card.php(2): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $img_name', 'C:\\WS\\facultad\\rep\\ecomerce\\app\\Views\\component\\card.php', 2)
+ 2 APPPATH\Views\content\home.php(6): require('C:\\WS\\facultad\\rep\\ecomerce\\app\\Views\\component\\card.php')
+ 3 APPPATH\Views\page\home.php(3): require_once('C:\\WS\\facultad\\rep\\ecomerce\\app\\Views\\content\\home.php')
+ 4 SYSTEMPATH\View\View.php(224): include('C:\\WS\\facultad\\rep\\ecomerce\\app\\Views\\page\\home.php')
+ 5 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->{closure:CodeIgniter\View\View::render():221}()
+ 6 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('page/home', [], true)
+ 7 APPPATH\Controllers\Home.php(22): view('page/home', [...])
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->home()
+ 9 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+10 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+14 SYSTEMPATH\rewrite.php(44): require_once('C:\\WS\\facultad\\rep\\ecomerce\\public\\index.php')
+CRITICAL - 2025-04-10 00:35:37 --> ErrorException: Undefined array key "img_name"
+[Method: GET, Route: /]
+in APPPATH\Views\component\card.php on line 2.
+ 1 APPPATH\Views\component\card.php(2): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "img_name"', 'C:\\WS\\facultad\\rep\\ecomerce\\app\\Views\\component\\card.php', 2)
+ 2 APPPATH\Views\content\home.php(6): require('C:\\WS\\facultad\\rep\\ecomerce\\app\\Views\\component\\card.php')
+ 3 APPPATH\Views\page\home.php(3): require_once('C:\\WS\\facultad\\rep\\ecomerce\\app\\Views\\content\\home.php')
+ 4 SYSTEMPATH\View\View.php(224): include('C:\\WS\\facultad\\rep\\ecomerce\\app\\Views\\page\\home.php')
+ 5 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->{closure:CodeIgniter\View\View::render():221}()
+ 6 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('page/home', [], true)
+ 7 APPPATH\Controllers\Home.php(29): view('page/home', [...])
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->home()
+ 9 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+10 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+14 SYSTEMPATH\rewrite.php(44): require_once('C:\\WS\\facultad\\rep\\ecomerce\\public\\index.php')
+CRITICAL - 2025-04-10 00:36:06 --> ErrorException: Undefined array key "desc"
+[Method: GET, Route: /]
+in APPPATH\Views\component\card.php on line 5.
+ 1 APPPATH\Views\component\card.php(5): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "desc"', 'C:\\WS\\facultad\\rep\\ecomerce\\app\\Views\\component\\card.php', 5)
+ 2 APPPATH\Views\content\home.php(6): require('C:\\WS\\facultad\\rep\\ecomerce\\app\\Views\\component\\card.php')
+ 3 APPPATH\Views\page\home.php(3): require_once('C:\\WS\\facultad\\rep\\ecomerce\\app\\Views\\content\\home.php')
+ 4 SYSTEMPATH\View\View.php(224): include('C:\\WS\\facultad\\rep\\ecomerce\\app\\Views\\page\\home.php')
+ 5 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->{closure:CodeIgniter\View\View::render():221}()
+ 6 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('page/home', [], true)
+ 7 APPPATH\Controllers\Home.php(29): view('page/home', [...])
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->home()
+ 9 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+10 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+14 SYSTEMPATH\rewrite.php(44): require_once('C:\\WS\\facultad\\rep\\ecomerce\\public\\index.php')
+CRITICAL - 2025-04-10 00:38:58 --> ParseError: syntax error, unexpected token ";", expecting "]"
+[Method: GET, Route: /]
+in APPPATH\Controllers\Home.php on line 26.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(295): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\WS\\facultad\\rep\\ecomerce\\app\\Controllers\\Home.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(271): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\Home')
+ 3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\Home')
+ 4 SYSTEMPATH\CodeIgniter.php(885): class_exists('\\App\\Controllers\\Home', true)
+ 5 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->startController()
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+10 SYSTEMPATH\rewrite.php(44): require_once('C:\\WS\\facultad\\rep\\ecomerce\\public\\index.php')
