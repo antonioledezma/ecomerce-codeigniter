@@ -1,0 +1,127 @@
+.card {
+  margin: 10px;
+  width: 300px;
+  height: auto;
+  background-color: #e9ecef;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #0001;
+  border-radius: 10px;
+  overflow: hidden;
+  cursor: pointer;
+  position: relative;
+  text-decoration: none;
+  color: #444;
+}
+
+.card-img-top {
+  width: 300px;
+}
+
+.button-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+
+.header-box{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.cantidad-box{
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.stock {
+  border-radius: 100%;
+  border-style: solid;
+  border-width: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #0003;
+  width: 30px;
+  height: 30px;
+  color: white;
+}
+
+.precio {
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  color: #666;
+}
+
+.cantidad {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+
+.buy-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  border-style: solid;
+  border-radius: 10px;
+  border-width: 0px;
+  cursor: pointer;
+  background-color: #01b16d;
+  color: white;
+}
+
+.box-label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    color: transparent;
+    transition-property: background-color, color;
+    transition-duration: 0.5s;
+}
+
+.box-label:hover {
+    transition-property: background-color, color;
+    transition-duration: 0.5s;
+    background-color: #FFFC;
+    color: #555;
+}
+
+.label {
+    font-size: 40px;
+}
+
+.box-new {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    background-color: #2ec4b6;
+    color: #EEE;
+    transition-property: background-color, color;
+    transition-duration: 0.5s;
+    border-style: solid;
+    border-width: 0px;
+    border-radius: 0px 0px 0px 10px;
+    padding: 10px 15px 10px 15px;
+}
+
+.label-new {
+    font-size: 18px;
+}

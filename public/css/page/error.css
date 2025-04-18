@@ -1,0 +1,25 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-item: center;
+    overflow: hidden;
+}
+
+.error-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-item: center;
+    padding: 20px;
+    margin-top: 250px;
+    margin-bottom: 250px;
+    max-width: 600px;
+    overflow: hidden;
+}
+
+.error-detail {
+    background-color: #DDD;
+    padding: 10px;
+    overflow: hidden;
+}
