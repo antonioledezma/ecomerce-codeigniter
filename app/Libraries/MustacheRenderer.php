@@ -7,7 +7,7 @@ class MustacheRenderer{
   protected $mustache;
 
   public function __construct(array $config = null){
-    $template_dir = APPPATH . 'Views';
+    $template_dir = APPPATH . 'Views/templates';
     $options = [
       'loader' => new Mustache_Loader_FilesystemLoader($template_dir),
       'partials_loader' => new Mustache_Loader_FilesystemLoader($template_dir),
