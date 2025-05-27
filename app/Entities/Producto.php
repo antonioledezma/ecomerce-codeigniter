@@ -14,12 +14,7 @@ class Producto extends Entity
   protected $isNew;
 
   protected $datamap = [
-    'id'     => 'ID',
-    'name'     => 'NAME',
-    'description' => 'DESCRIPTION',
-    'price' => 'PRICE',
-    'amount' => 'AMOUNT',
-    'srcImg' => 'SRC_IMG',
+    'srcImg' => 'src_img',
     'isNew' => 'IS_NEW',
   ];
 

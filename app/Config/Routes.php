@@ -5,14 +5,23 @@ use CodeIgniter\Router\RouteCollection;
 /**
  * @var RouteCollection $routes
  */
-$routes->get('/', 'PublicController::principal');
-$routes->get('/principal', 'PublicController::principal');
-$routes->get('/home', 'PublicController::principal');
-$routes->get('/comercializacion', 'PublicController::comercializacion');
-$routes->get('/informacion-de-contacto', 'PublicController::informacionDeContacto');
-$routes->get('/quienes-somos', 'PublicController::quienesSomos');
-$routes->get('/terminos-y-uso', 'PublicController::terminosYUso');
-$routes->get('/product', 'PublicController::productDetail');
+define('PAGE_PRINCIPAL_HANDLER', 'PageController::principal');
+
+$routes->get('/', PAGE_PRINCIPAL_HANDLER);
+$routes->get('/principal', PAGE_PRINCIPAL_HANDLER);
+$routes->get('/home', PAGE_PRINCIPAL_HANDLER);
+
+$routes->get('/comercializacion', 'PageController::comercializacion');
+
+$routes->get('/informacion-de-contacto', 'PageController::informacionDeContacto');
+
+$routes->get('/quienes-somos', 'PageController::quienesSomos');
+
+$routes->get('/terminos-y-uso', 'PageController::terminosYUso');
+
+$routes->get('/product', 'PageController::productDetail');
+
+$routes->get('/catalogo', 'PageController::catalogo');
 
 /*
 1. Principal (proyecto1)

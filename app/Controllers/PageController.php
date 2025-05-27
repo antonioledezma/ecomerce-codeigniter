@@ -5,7 +5,7 @@ use App\Libraries\MustacheRenderer;
 use Mustache_Engine;
 use App\Models\ProductoModel;
 
-class PublicController extends BaseController {
+class PageController extends BaseController {
   private $mustacheRenderer;
   private $productoModel;
 
@@ -78,6 +78,17 @@ class PublicController extends BaseController {
       ]
     ];
     echo $this->mustacheRenderer->render('page/product-detail', $data);
+  }
+
+  public function catalogo(){
+    $data = [
+      'title' => 'Catálogo',
+      'breadcrumbs-items' => [
+        ['title' => 'Principal', 'url' => '/principal'],
+        ['title' => 'Catálogo', 'url' => '/catalogo'],
+      ]
+    ];
+    echo $this->mustacheRenderer->render('page/catalogo', $data);
   }
 
 }
