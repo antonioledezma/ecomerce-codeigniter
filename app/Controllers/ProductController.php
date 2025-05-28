@@ -2,22 +2,25 @@
 namespace App\Controllers;
 use App\Models\ProductoModel;
 
-class PageController extends BaseController {
+class ProductController extends BaseController {
   private $productoModel;
 
   public function __construct() {
     $this->productoModel = new ProductoModel();
   }
 
-  public function principal(){
-    $data = [
-      'title' => 'Principal',
-      'breadcrumbs-items' => [
-        ['title' => 'Principal', 'url' => '/principal']
-      ],
-      'productList' => $this->productoModel->findAll()
-    ];
-    echo $this->mustacheRenderer->render('page/principal', $data);
+  public function findAll(){
+    $productos = $this->productoModel->findAll();
+    return $this->response->setJSON($productos);
   }
-  
+
+  public function findById($id){
+    $producto = $this->productoModel->find($id);
+    if ($producto) {
+      return $this->response->setJSON($producto);
+    } else {
+      return $this->response->setStatusCode(404, 'Producto no encontrado');
+    }
+  }
+
 }

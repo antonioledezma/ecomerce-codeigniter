@@ -23,6 +23,11 @@ $routes->get('/product', 'PageController::productDetail');
 
 $routes->get('/catalogo', 'PageController::catalogo');
 
+
+/** API */
+$routes->get('/api/v1/product', 'ProductController::findAll');
+$routes->get('/api/v1/product/(:id)', 'ProductController::findById/$1');
+
 /*
 1. Principal (proyecto1)
 2. Quienes Somos (proyecto 1)
