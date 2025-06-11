@@ -2,7 +2,6 @@
 
 namespace App\Controllers;
 use App\Libraries\MustacheRenderer;
-use Mustache_Engine;
 use App\Models\ProductoModel;
 
 class PageController extends BaseController {
@@ -83,12 +82,30 @@ class PageController extends BaseController {
   public function catalogo(){
     $data = [
       'title' => 'Catálogo',
+      'productList' => $this->getProductList(),
       'breadcrumbs-items' => [
         ['title' => 'Principal', 'url' => '/principal'],
         ['title' => 'Catálogo', 'url' => '/catalogo'],
       ]
     ];
     echo $this->mustacheRenderer->render('page/catalogo', $data);
+  }
+
+  public function getProductList() {
+    /* Para filtros de busqueda. */
+    $name = $this->request->getGet('name');
+    $id = $this->request->getGet('id');
+    $productoList = [];
+
+    if($name){
+       $productoList = [$this->productoModel->where('name', $name)->first()];
+    } elseif($id){
+       $productoList = [$this->productoModel->find($id)];
+    } else {
+       $productoList = $this->productoModel->findAll();
+    }
+
+    return $productoList;
   }
 
 }

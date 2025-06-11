@@ -9,13 +9,19 @@ class ProductController extends BaseController {
     $this->productoModel = new ProductoModel();
   }
 
-  public function findAll(){
-    $productos = $this->productoModel->findAll();
-    return $this->response->setJSON($productos);
-  }
+  public function find(){
+    $name = $this->request->getGet('name');
+    $id = $this->request->getGet('id');
+    $producto = null;
 
-  public function findById($id){
-    $producto = $this->productoModel->find($id);
+    if($name){
+       $producto = $this->productoModel->where('name', $name)->first();
+    } elseif($id){
+       $producto = $this->productoModel->find($id);
+    } else {
+       $producto = $this->productoModel->findAll();
+    }
+
     if ($producto) {
       return $this->response->setJSON($producto);
     } else {
