@@ -23,6 +23,8 @@ $routes->get('/product', 'PageController::productDetail');
 
 $routes->get('/catalogo', 'PageController::catalogo');
 
+$routes->get('/login', 'PageController::login');
+$routes->get('/register', 'PageController::register');
 
 /** API */
 $routes->get('/api/product', 'ProductController::find');

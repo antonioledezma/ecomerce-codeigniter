@@ -91,6 +91,28 @@ class PageController extends BaseController {
     echo $this->mustacheRenderer->render('page/catalogo', $data);
   }
 
+  public function login(){
+    $data = [
+      'title' => 'Login',
+      'breadcrumbs-items' => [
+        ['title' => 'Principal', 'url' => '/principal'],
+        ['title' => 'Login', 'url' => '/login'],
+      ]
+    ];
+    echo $this->mustacheRenderer->render('page/login', $data);
+  }
+
+  public function register(){
+    $data = [
+      'title' => 'Register',
+      'breadcrumbs-items' => [
+        ['title' => 'Principal', 'url' => '/principal'],
+        ['title' => 'Register', 'url' => '/register'],
+      ]
+    ];
+    echo $this->mustacheRenderer->render('page/register', $data);
+  }
+
   public function getProductList() {
     /* Para filtros de busqueda. */
     $name = $this->request->getGet('name');
