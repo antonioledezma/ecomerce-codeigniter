@@ -15,7 +15,7 @@ class PageController extends BaseController {
 
   public function principal(){
     $data = [
-      'title' => 'Principal',
+      'name' => 'principal',
       'breadcrumbs-items' => [
         ['title' => 'Principal', 'url' => '/principal']
       ],
@@ -26,7 +26,7 @@ class PageController extends BaseController {
 
   public function comercializacion(){
     $data = [
-      'title' => 'Principal',
+      'name' => 'comercializacion',
       'breadcrumbs-items' => [
         ['title' => 'Principal', 'url' => '/principal'],
         ['title' => 'Comercialización', 'url' => '/comercializacion'],
@@ -37,7 +37,7 @@ class PageController extends BaseController {
 
   public function informacionDeContacto(){
     $data = [
-      'title' => 'información de contacto',
+      'name' => 'informacion-de-contacto',
       'breadcrumbs-items' => [
         ['title' => 'Principal', 'url' => '/principal'],
         ['title' => 'información de contacto', 'url' => '/informacion-de-contacto'],
@@ -48,7 +48,7 @@ class PageController extends BaseController {
 
   public function quienesSomos(){
     $data = [
-      'title' => 'Quienes somos',
+      'name' => 'quienes-somos',
       'breadcrumbs-items' => [
         ['title' => 'Principal', 'url' => '/principal'],
         ['title' => 'Quienes somos', 'url' => '/quienes-somos'],
@@ -59,7 +59,7 @@ class PageController extends BaseController {
 
   public function terminosYUso(){
     $data = [
-      'title' => 'Términos y uso',
+      'name' => 'terminos-y-uso',
       'breadcrumbs-items' => [
         ['title' => 'Principal', 'url' => '/principal'],
         ['title' => 'Términos y uso', 'url' => '/terminos-y-uso'],
@@ -70,7 +70,7 @@ class PageController extends BaseController {
 
   public function productDetail(){
     $data = [
-      'title' => 'Producto',
+      'name' => 'product-detail',
       'breadcrumbs-items' => [
         ['title' => 'Principal', 'url' => '/principal'],
         ['title' => 'Producto', 'url' => '/product-detail'],
@@ -81,7 +81,7 @@ class PageController extends BaseController {
 
   public function catalogo(){
     $data = [
-      'title' => 'Catálogo',
+      'name' => 'catalogo',
       'productList' => $this->getProductList(),
       'breadcrumbs-items' => [
         ['title' => 'Principal', 'url' => '/principal'],
@@ -93,7 +93,7 @@ class PageController extends BaseController {
 
   public function login(){
     $data = [
-      'title' => 'Login',
+      'name' => 'login',
       'breadcrumbs-items' => [
         ['title' => 'Principal', 'url' => '/principal'],
         ['title' => 'Login', 'url' => '/login'],
@@ -104,7 +104,7 @@ class PageController extends BaseController {
 
   public function register(){
     $data = [
-      'title' => 'Register',
+      'name' => 'register',
       'breadcrumbs-items' => [
         ['title' => 'Principal', 'url' => '/principal'],
         ['title' => 'Register', 'url' => '/register'],
