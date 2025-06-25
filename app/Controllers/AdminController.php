@@ -25,15 +25,18 @@ class AdminController extends BaseController {
       return redirect()->to('/session/login');
     }
 
-    $name = $this->request->getPost('name');
-    $price = $this->request->getPost('price');
-    $amount = $this->request->getPost('amout');
+    $name = $this->request->getPostGet('name');
+    $price = $this->request->getPostGet('price');
+    $amount = $this->request->getPostGet('amount');
 
-    $product = $this->productModel->find($id);
+    $product = $this->productModel->where([
+      'ID' => $id,
+    ])->first();
+    
     if ($product) {
-      $product['name'] = $name;
-      $product['price'] = $price;
-      $product['amount'] = $amount;
+      $product['NAME'] = $name;
+      $product['PRICE'] = $price;
+      $product['AMOUNT'] = $amount;
 
       $this->productModel->update($id, $product);
     } else {
@@ -58,6 +61,17 @@ class AdminController extends BaseController {
     if(!$this->commonService->isAdmin()) {
       return redirect()->to('/session/login');
     }
+
+    $name = $this->request->getPost('name');
+    $price = $this->request->getPost('price');
+    $amount = $this->request->getPost('amount');
+
+    $this->productModel->insert([
+      'NAME' => $name,
+      'PRICE' => $price,
+      'AMOUNT' => $amount,
+      'IS_NEW' => true
+    ]);
     
     return redirect()->to('/admin/panel');
   }

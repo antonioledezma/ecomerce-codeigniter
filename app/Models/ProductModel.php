@@ -3,11 +3,10 @@
 namespace App\Models;
 
 use CodeIgniter\Model;
-use App\Entities\Producto;
 
-class ProductoModel extends Model{
+class ProductModel extends Model{
   protected $table            = 'product';
-  protected $primaryKey       = 'id';
+  protected $primaryKey       = 'ID';
   protected $useAutoIncrement = true;
   protected $returnType       = 'array';
   protected $useSoftDeletes   = false;

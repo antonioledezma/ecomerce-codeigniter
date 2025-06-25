@@ -11,7 +11,7 @@ use Psr\Log\LoggerInterface;
 use App\Libraries\MustacheRenderer;
 use App\Service\CommonService;
 use App\Models\UserModel;
-use App\Models\ProductoModel;
+use App\Models\ProductModel;
 
 /**
  * Class BaseController
@@ -68,6 +68,6 @@ abstract class BaseController extends Controller
         $this->mustache = new MustacheRenderer();
         $this->commonService = new CommonService();
         $this->userModel = new UserModel();
-        $this->productModel = new ProductoModel();
+        $this->productModel = new ProductModel();
     }
 }

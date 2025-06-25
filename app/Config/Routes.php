@@ -22,7 +22,7 @@ $routes->get('/session/register', 'SessionController::registerPage');
 $routes->get('/admin/panel', 'AdminController::panel');
 $routes->post('/admin/update/(:num)', 'AdminController::update/$1');
 $routes->get('/admin/delete/(:num)', 'AdminController::delete/$1');
-$routes->get('/admin/create', 'AdminController::create');
+$routes->post('/admin/create', 'AdminController::create');
 
 /** CART */
 $routes->post('/cart/add', 'CardController::add');

@@ -3,17 +3,17 @@
 namespace App\Service;
 
 use App\Models\UserModel;
-use App\Models\ProductoModel;
+use App\Models\ProductModel;
 use CodeIgniter\Config\Services;
 
 class CommonService extends Services{
 
   private $userModel;
-  private $productoModel;
+  private $productModel;
 
   public function __construct() {
     $this->userModel = new UserModel();
-    $this->productoModel = new ProductoModel();
+    $this->productModel = new ProductModel();
   }
 
   public function isAdmin() : bool {
@@ -38,11 +38,11 @@ class CommonService extends Services{
     $productoList = [];
 
     if($name){
-       $productoList = [$this->productoModel->where('name', $name)->first()];
+       $productoList = [$this->productModel->where('name', $name)->first()];
     } elseif($id){
-       $productoList = [$this->productoModel->find($id)];
+       $productoList = [$this->productModel->find($id)];
     } else {
-       $productoList = $this->productoModel->findAll();
+       $productoList = $this->productModel->findAll();
     }
 
     return $productoList;
