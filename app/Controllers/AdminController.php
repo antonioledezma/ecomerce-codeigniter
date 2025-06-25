@@ -20,9 +20,25 @@ class AdminController extends BaseController {
     return $this->mustache->render('page/admin/panel', array_merge($data, $this->commonService->makeCommonData()));
   }
 
-  public function edit($id){
+  public function update($id){
     if(!$this->commonService->isAdmin()) {
       return redirect()->to('/session/login');
+    }
+
+    $name = $this->request->getPost('name');
+    $price = $this->request->getPost('price');
+    $amount = $this->request->getPost('amout');
+
+    $product = $this->productModel->find($id);
+    if ($product) {
+      $product['name'] = $name;
+      $product['price'] = $price;
+      $product['amount'] = $amount;
+
+      $this->productModel->update($id, $product);
+    } else {
+      // Handle the case where the product does not exist
+      return redirect()->to('/admin/panel')->with('error', 'Product not found.');
     }
     
     return redirect()->to('/admin/panel');
@@ -32,6 +48,8 @@ class AdminController extends BaseController {
     if(!$this->commonService->isAdmin()) {
       return redirect()->to('/session/login');
     }
+
+    $product = $this->productModel->delete($id);
     
     return redirect()->to('/admin/panel');
   }
