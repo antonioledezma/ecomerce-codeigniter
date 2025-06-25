@@ -1,41 +1,28 @@
 <?php
 
-use CodeIgniter\Router\RouteCollection;
+/** COMMON */
+$routes->get('/', "CommonController::principal");
+$routes->get('/principal', "CommonController::principal");
+$routes->get('/home', "CommonController::principal");
+$routes->get('/comercializacion', 'CommonController::comercializacion');
+$routes->get('/informacion-de-contacto', 'CommonController::informacionDeContacto');
+$routes->get('/quienes-somos', 'CommonController::quienesSomos');
+$routes->get('/terminos-y-uso', 'CommonController::terminosYUso');
+$routes->get('/product', 'CommonController::productDetail');
+$routes->get('/catalogo', 'CommonController::catalogo');
 
-/**
- * @var RouteCollection $routes
- */
-define('PAGE_PRINCIPAL_HANDLER', 'PageController::principal');
+/** SESSION */
+$routes->post('/session/login', 'SessionController::login');
+$routes->post('/session/register', 'SessionController::register');
+$routes->get('/session/logout', 'SessionController::logout');
+$routes->get('/session/login', 'SessionController::loginPage');
+$routes->get('/session/register', 'SessionController::registerPage');
 
-$routes->get('/', PAGE_PRINCIPAL_HANDLER);
-$routes->get('/principal', PAGE_PRINCIPAL_HANDLER);
-$routes->get('/home', PAGE_PRINCIPAL_HANDLER);
+/** ADMIN */
+$routes->get('/admin/panel', 'AdminController::panel');
+$routes->get('/admin/edit/(:num)', 'AdminController::edit/$1');
+$routes->get('/admin/delete/(:num)', 'AdminController::delete/$1');
+$routes->get('/admin/create', 'AdminController::create');
 
-$routes->get('/comercializacion', 'PageController::comercializacion');
-
-$routes->get('/informacion-de-contacto', 'PageController::informacionDeContacto');
-
-$routes->get('/quienes-somos', 'PageController::quienesSomos');
-
-$routes->get('/terminos-y-uso', 'PageController::terminosYUso');
-
-$routes->get('/product', 'PageController::productDetail');
-
-$routes->get('/catalogo', 'PageController::catalogo');
-
-$routes->get('/login', 'PageController::login');
-$routes->get('/register', 'PageController::register');
-
-/** API */
-$routes->get('/api/product', 'ProductController::find');
-
-/*
-1. Principal (proyecto1)
-2. Quienes Somos (proyecto 1)
-3. Comercialización (proyecto1)
-4. Información de Contactos (proyecto 1)
-5. Términos y Usos (proyecto 1)
-
-6. Catálogo de productos (proyecto 2)
-7. Consultas (proyecto2)
-*/
+/** CART */
+$routes->post('/cart/add', 'CardController::add');

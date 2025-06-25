@@ -8,6 +8,9 @@ use CodeIgniter\HTTP\IncomingRequest;
 use CodeIgniter\HTTP\RequestInterface;
 use CodeIgniter\HTTP\ResponseInterface;
 use Psr\Log\LoggerInterface;
+use App\Libraries\MustacheRenderer;
+use App\Service\CommonService;
+use App\Models\UserModel;
 
 /**
  * Class BaseController
@@ -46,6 +49,12 @@ abstract class BaseController extends Controller
     /**
      * @return void
      */
+
+     
+    protected $mustache;
+    protected $commonService;
+    protected $userModel;
+
     public function initController(RequestInterface $request, ResponseInterface $response, LoggerInterface $logger)
     {
         // Do Not Edit This Line
@@ -54,5 +63,8 @@ abstract class BaseController extends Controller
         // Preload any models, libraries, etc, here.
 
         // E.g.: $this->session = service('session');
+        $this->mustache = new MustacheRenderer();
+        $this->commonService = new CommonService();
+        $this->userModel = new UserModel();
     }
 }
