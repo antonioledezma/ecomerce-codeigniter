@@ -12,6 +12,7 @@ use App\Libraries\MustacheRenderer;
 use App\Service\CommonService;
 use App\Models\UserModel;
 use App\Models\ProductModel;
+use App\Models\CartModel;
 
 /**
  * Class BaseController
@@ -57,6 +58,8 @@ abstract class BaseController extends Controller
     protected $userModel;
     protected $productModel;
 
+    protected $cartModel;
+
     public function initController(RequestInterface $request, ResponseInterface $response, LoggerInterface $logger)
     {
         // Do Not Edit This Line
@@ -69,5 +72,6 @@ abstract class BaseController extends Controller
         $this->commonService = new CommonService();
         $this->userModel = new UserModel();
         $this->productModel = new ProductModel();
+        $this->cartModel = new CartModel();
     }
 }

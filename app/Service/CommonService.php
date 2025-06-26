@@ -21,6 +21,11 @@ class CommonService extends Services{
     return isset($user) && isset($user["ROLE"]) && $user["ROLE"] == "ADMIN";
   }
 
+  public function isLogged() : bool {
+    $user = session()->get("USER");
+    return isset($user);
+  }
+
   public function makeCommonData() : array {
     $user = session()->get("USER");
     
@@ -31,6 +36,14 @@ class CommonService extends Services{
       'username' => isset($user) && isset($user["USERNAME"])  ? $user["USERNAME"] : "",
       'email' => isset($user) && isset($user["EMAIL"])  ? $user["EMAIL"] : ""
     ];
+  }
+
+  public function getUserId() : int {
+    $user = session()->get("USER");
+    if(isset($user) && isset($user["ID"])){
+      return $user["ID"];
+    }
+    return 0;
   }
 
   public function getProductList($id, $name) {

@@ -60,9 +60,10 @@ class CommonController extends BaseController {
     return $this->mustache->render('page/common/terminos-y-uso', array_merge($data, $this->commonService->makeCommonData()));
   }
 
-  public function productDetail(){
+  public function productDetail($id){
     $data = [
       'name' => 'product-detail',
+      'product' => $this->productModel->where( ['ID' => $id])->first(),
       'breadcrumbs-items' => [
         ['title' => 'Principal', 'url' => '/principal'],
         ['title' => 'Producto', 'url' => '/product-detail'],

@@ -11,7 +11,7 @@ class ProductModel extends Model{
   protected $returnType       = 'array';
   protected $useSoftDeletes   = false;
   protected $protectFields    = false;
-  protected $allowedFields    = [];
+  protected $allowedFields    = ['ID', 'NAME', 'PRICE', 'AMOUNT', 'IS_NEW'];
 
   protected bool $allowEmptyInserts = false;
   protected bool $updateOnlyChanged = true;

@@ -8,7 +8,7 @@ $routes->get('/comercializacion', 'CommonController::comercializacion');
 $routes->get('/informacion-de-contacto', 'CommonController::informacionDeContacto');
 $routes->get('/quienes-somos', 'CommonController::quienesSomos');
 $routes->get('/terminos-y-uso', 'CommonController::terminosYUso');
-$routes->get('/product', 'CommonController::productDetail');
+$routes->get('/product/(:num)', 'CommonController::productDetail/$1');
 $routes->get('/catalogo', 'CommonController::catalogo');
 
 /** SESSION */
@@ -23,6 +23,10 @@ $routes->get('/admin/panel', 'AdminController::panel');
 $routes->post('/admin/update/(:num)', 'AdminController::update/$1');
 $routes->get('/admin/delete/(:num)', 'AdminController::delete/$1');
 $routes->post('/admin/create', 'AdminController::create');
+$routes->post('/admin/product/add-to-cart/(:num)', 'AdminController::addToCart/$1');
+$routes->get('/admin/cart', 'AdminController::cartPage');
+
+
 
 /** CART */
 $routes->post('/cart/add', 'CardController::add');
