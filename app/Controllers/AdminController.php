@@ -8,9 +8,34 @@ class AdminController extends BaseController {
       return redirect()->to('/session/login');
     }
 
+    $consutaList = $this->consultaModel->findAll();
+
+    $userList = $this->userModel->findAll();
+    foreach ($userList as $key => &$user) {
+      $cartItems = $this->cartModel->where(['USER_ID' => $user['ID'], 'STATUS' => 'COMPLETED'])->findAll();
+      $subTotal = 0;
+      foreach ($cartItems as &$item) {
+        $product = $this->productModel->where(['ID' => $item['PRODUCT_ID']])->first();
+        if($product) {
+          $item['product'] = $product;
+          $item['subtotal'] = $item['AMOUNT'] * $product['price'];
+          $subTotal += $item['subtotal'];
+        }
+      }
+      if (empty($cartItems)) {
+        unset($userList[$key]);
+        continue;
+      }
+      $user['subtotal'] = $subTotal;
+      $user['cartItems'] = $cartItems;
+    }
+    $userList = array_values($userList);
+  
     $data = [
       'name' => 'admin-panel',
-      'productList' => $this->commonService->getProductList(null, null),
+      'productList' => $this->commonService->getProductList(null, null, null),
+      'consultaList' => $consutaList,
+      'facturaList' => $userList,
       'breadcrumbs-items' => [
         ['title' => 'Principal', 'url' => '/principal'],
         ['title' => 'Login', 'url' => '/admin/panel'],
@@ -25,22 +50,27 @@ class AdminController extends BaseController {
       return redirect()->to('/session/login');
     }
 
-    $cartItems = $this->cartModel->where('USER_ID', $this->commonService->getUserId())->findAll();
-    $productList = [];
+    $cartItems = $this->cartModel->where(['USER_ID' => $this->commonService->getUserId(), 'STATUS' => 'ACTIVE'])->findAll();
+    $subTotal = 0;
     foreach ($cartItems as &$item) {
-      $product = $this->productModel->find($item['PRODUCT_ID']);
-      $productList = array_merge($productList, $product);
+      $product = $this->productModel->where(['ID' => $item['PRODUCT_ID']])->first();
+      if($product) {
+        $item['product'] = $product;
+        $item['subtotal'] = $item['AMOUNT'] * $product['price'];
+        $subTotal += $item['subtotal'];
+      }
     }
 
     $data = [
       'name' => 'cart',
-      'cartItems' => $productList,
+      'cartItems' => $cartItems,
+      'subTotal' => $subTotal,
       'breadcrumbs-items' => [
         ['title' => 'Principal', 'url' => '/principal'],
         ['title' => 'Cart', 'url' => '/admin/cart'],
       ]
     ];
-    
+    //return json_encode(value: $cartItems);
     return $this->mustache->render('page/admin/cart', array_merge($data, $this->commonService->makeCommonData()));
   }
 
@@ -52,6 +82,9 @@ class AdminController extends BaseController {
     $name = $this->request->getPostGet('name');
     $price = $this->request->getPostGet('price');
     $amount = $this->request->getPostGet('amount');
+    $description = $this->request->getPostGet('description');
+    $is_new = $this->request->getPostGet('is_new');
+
     $file = $this->request->getFile('file');
     $fileName = null;
 
@@ -70,6 +103,8 @@ class AdminController extends BaseController {
       $product['NAME'] = $name;
       $product['PRICE'] = $price;
       $product['AMOUNT'] = $amount;
+      $product['DESCRIPTION'] = $description;
+      $product['IS_NEW'] = $is_new ? 1 : 0;
       if ($fileName) {
         $product['SRC_IMG'] = $fileName;
       }
@@ -101,6 +136,8 @@ class AdminController extends BaseController {
     $name = $this->request->getPost('name');
     $price = $this->request->getPost('price');
     $amount = $this->request->getPost('amount');
+    $description = $this->request->getPostGet('description');
+    $is_new = $this->request->getPostGet('is_new');
     $file = $this->request->getFile('file');
     $fileName = null;
 
@@ -115,8 +152,9 @@ class AdminController extends BaseController {
       'NAME' => $name,
       'PRICE' => $price,
       'AMOUNT' => $amount,
-      'IS_NEW' => true,
       'SRC_IMG' => $fileName,
+      'DESCRIPTION' => $description,
+      'IS_NEW' => $is_new ? 1 : 0
     ]);
     
     return redirect()->to('/admin/panel');
@@ -139,7 +177,8 @@ class AdminController extends BaseController {
     // carrito
     $cart = $this->cartModel->where([
       'USER_ID' => $userID,
-      'PRODUCT_ID' => $id
+      'PRODUCT_ID' => $id,
+      'status' => 'ACTIVE'
     ])->first();
 
     if ($cart) {
@@ -150,11 +189,43 @@ class AdminController extends BaseController {
       $this->cartModel->insert([
         'USER_ID' => $userID,
         'PRODUCT_ID' => $id,
-        'AMOUNT' => $quantity
+        'AMOUNT' => $quantity,
+        'status' => 'ACTIVE'
       ]);
     }
     
     return redirect()->to('/product/' . $id);
+  }
+
+  public function cartRemove($id){
+    if(!$this->commonService->isLogged()) {
+      return redirect()->to('/session/login');
+    }
+
+    $this->cartModel->delete($id);
+    
+    return redirect()->to('/admin/cart');
+  }
+
+  public function cartBuy(){
+    if(!$this->commonService->isLogged()) {
+      return redirect()->to('/session/login');
+    }
+    
+    $userID = $this->commonService->getUserId();
+
+    // carrito
+    $cartList = $this->cartModel->where([
+      'USER_ID' => $userID,
+      'status' => 'ACTIVE'
+    ])->findAll();
+
+    foreach ($cartList as $cartItem) {
+      // Actualizar el estado del carrito a 'COMPLETED'
+      $this->cartModel->update($cartItem['ID'], ['status' => 'COMPLETED']);
+    }
+
+    return redirect()->to('/');
   }
 
 }

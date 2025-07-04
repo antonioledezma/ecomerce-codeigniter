@@ -59,6 +59,9 @@ abstract class BaseController extends Controller
     protected $productModel;
 
     protected $cartModel;
+    protected $consultaModel;
+    protected $facturaModel;
+    protected $facturaCarritoModel;
 
     public function initController(RequestInterface $request, ResponseInterface $response, LoggerInterface $logger)
     {
@@ -73,5 +76,8 @@ abstract class BaseController extends Controller
         $this->userModel = new UserModel();
         $this->productModel = new ProductModel();
         $this->cartModel = new CartModel();
+        $this->consultaModel = new \App\Models\ConsultaModel();
+        $this->facturaModel = new \App\Models\FacturaModel();
+        $this->facturaCarritoModel = new \App\Models\FacturaCarritoModel();
     }
 }

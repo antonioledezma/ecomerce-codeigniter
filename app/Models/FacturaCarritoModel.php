@@ -4,14 +4,14 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class ProductModel extends Model{
-  protected $table            = 'producto';
+class FacturaCarritoModel extends Model{
+  protected $table            = 'factura_carrito';
   protected $primaryKey       = 'ID';
   protected $useAutoIncrement = true;
   protected $returnType       = 'array';
   protected $useSoftDeletes   = false;
   protected $protectFields    = false;
-  protected $allowedFields    = ['ID', 'NAME', 'DESCRIPTION', 'PRICE', 'AMOUNT', 'SRC_IMG', 'IS_NEW'];
+  protected $allowedFields    = ['ID', 'FACTURA_ID', 'CART_ID'];
 
   protected bool $allowEmptyInserts = false;
   protected bool $updateOnlyChanged = true;

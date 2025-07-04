@@ -46,16 +46,22 @@ class CommonService extends Services{
     return 0;
   }
 
-  public function getProductList($id, $name) {
+  public function getProductList($id, $name, $price) {
     /* Para filtros de busqueda. */
-    $productoList = [];
+    $productoList = null;
 
     if($name){
        $productoList = [$this->productModel->where('name', $name)->first()];
     } elseif($id){
        $productoList = [$this->productModel->find($id)];
+    }elseif($price){
+       $productoList = $this->productModel->where('price', $price)->findAll();
     } else {
        $productoList = $this->productModel->findAll();
+    }
+
+    if($productoList == null) {
+      $productoList = [];
     }
 
     return $productoList;

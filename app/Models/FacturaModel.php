@@ -4,14 +4,14 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class ProductModel extends Model{
-  protected $table            = 'producto';
+class FacturaModel extends Model{
+  protected $table            = 'factura';
   protected $primaryKey       = 'ID';
   protected $useAutoIncrement = true;
   protected $returnType       = 'array';
   protected $useSoftDeletes   = false;
   protected $protectFields    = false;
-  protected $allowedFields    = ['ID', 'NAME', 'DESCRIPTION', 'PRICE', 'AMOUNT', 'SRC_IMG', 'IS_NEW'];
+  protected $allowedFields    = ['ID', 'USER_ID', 'created_at', 'TOTAL'];
 
   protected bool $allowEmptyInserts = false;
   protected bool $updateOnlyChanged = true;
@@ -20,7 +20,7 @@ class ProductModel extends Model{
   protected array $castHandlers = [];
 
   // Dates
-  protected $useTimestamps = false;
+  protected $useTimestamps = true;
   protected $dateFormat    = 'datetime';
   protected $createdField  = 'created_at';
   protected $updatedField  = 'updated_at';

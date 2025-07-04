@@ -6,13 +6,13 @@ use CodeIgniter\Model;
 
 class CartModel extends Model
 {
-    protected $table            = 'CART';
+    protected $table            = 'CARRITO';
     protected $primaryKey       = 'ID';
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['ID', 'USER_ID', 'PRODUCT_ID', 'AMOUNT'];
+    protected $allowedFields    = ['ID', 'USER_ID', 'PRODUCT_ID', 'AMOUNT', 'status'];
 
     protected bool $allowEmptyInserts = false;
     protected bool $updateOnlyChanged = true;

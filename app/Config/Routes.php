@@ -25,7 +25,8 @@ $routes->get('/admin/delete/(:num)', 'AdminController::delete/$1');
 $routes->post('/admin/create', 'AdminController::create');
 $routes->post('/admin/product/add-to-cart/(:num)', 'AdminController::addToCart/$1');
 $routes->get('/admin/cart', 'AdminController::cartPage');
-
+$routes->post('/admin/cart/remove/(:num)', 'AdminController::cartRemove/$1');
+$routes->post('/admin/cart/buy', 'AdminController::cartBuy');
 
 
 /** CART */

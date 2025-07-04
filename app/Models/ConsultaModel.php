@@ -4,14 +4,14 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class ProductModel extends Model{
-  protected $table            = 'producto';
+class ConsultaModel extends Model{
+  protected $table            = 'consulta';
   protected $primaryKey       = 'ID';
   protected $useAutoIncrement = true;
   protected $returnType       = 'array';
   protected $useSoftDeletes   = false;
   protected $protectFields    = false;
-  protected $allowedFields    = ['ID', 'NAME', 'DESCRIPTION', 'PRICE', 'AMOUNT', 'SRC_IMG', 'IS_NEW'];
+  protected $allowedFields    = ['ID', 'NAME', 'EMAIL', 'CONSULTA'];
 
   protected bool $allowEmptyInserts = false;
   protected bool $updateOnlyChanged = true;

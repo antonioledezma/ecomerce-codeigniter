@@ -10,7 +10,7 @@ class CommonController extends BaseController {
       'breadcrumbs-items' => [
         ['title' => 'Principal', 'url' => '/principal']
       ],
-      'productList' => $this->commonService->getProductList(null, null)
+      'productList' => $this->commonService->getProductList(null, null, null)
     ];
 
     return $this->mustache->render('page/common/principal', array_merge($data, $this->commonService->makeCommonData()));
@@ -28,6 +28,19 @@ class CommonController extends BaseController {
   }
 
   public function informacionDeContacto(){
+    $name = $this->request->getPostGet('name');
+    $email = $this->request->getPostGet('email');
+    $consulta = $this->request->getPostGet('consulta');
+
+    if($name && $email && $consulta) {
+      $this->consultaModel->insert([
+        'NAME' => $name,
+        'EMAIL' => $email,
+        'CONSULTA' => $consulta
+      ]);
+      return redirect()->to('/principal')->with('success', 'Consulta enviada correctamente.');
+    }
+
     $data = [
       'name' => 'informacion-de-contacto',
       'breadcrumbs-items' => [
@@ -66,7 +79,7 @@ class CommonController extends BaseController {
       'product' => $this->productModel->where( ['ID' => $id])->first(),
       'breadcrumbs-items' => [
         ['title' => 'Principal', 'url' => '/principal'],
-        ['title' => 'Producto', 'url' => '/product-detail'],
+        ['title' => 'Producto', 'url' => '/product/' . $id],
       ]
     ];
     return $this->mustache->render('page/common/product-detail', array_merge($data, $this->commonService->makeCommonData()));
@@ -75,10 +88,12 @@ class CommonController extends BaseController {
   public function catalogo(){
     $id = $this->request->getGet('id');
     $name = $this->request->getGet('name');
+    $price = $this->request->getGet('price');
+    $productList = $this->commonService->getProductList($id, $name, $price);
 
     $data = [
       'name' => 'catalogo',
-      'productList' => $this->commonService->getProductList($id, $name),
+      'productList' => $productList == [] ? null : $productList,
       'breadcrumbs-items' => [
         ['title' => 'Principal', 'url' => '/principal'],
         ['title' => 'Catálogo', 'url' => '/catalogo'],
